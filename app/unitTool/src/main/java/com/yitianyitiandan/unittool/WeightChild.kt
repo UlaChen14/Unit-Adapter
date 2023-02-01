@@ -1,8 +1,8 @@
 package com.yitianyitiandan.unittool
 
-class WeightChild : UnitPaPa<WeightChild.WeightUnit>() {
+class WeightChild : UnitPaPa<Double, WeightChild.WeightUnit>() {
 
-    enum class WeightUnit : UnitConvert {
+    enum class WeightUnit : UnitConvert<Double> {
         KG {
             override fun toBase(value: Double): Double {
                 return value

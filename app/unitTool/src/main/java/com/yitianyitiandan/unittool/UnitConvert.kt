@@ -1,6 +1,6 @@
 package com.yitianyitiandan.unittool
 
-interface UnitConvert<U> {
-    fun toBase(value: U): U
-    fun baseToValue(value: U): U
+interface UnitConvert<U, V> {
+    fun toBase(value: U): V
+    fun baseToValue(value: V): U
 }

@@ -1,6 +1,6 @@
 package com.yitianyitiandan.unittool
 
-abstract class UnitPaPa<U, T : UnitConvert<U>> {
+abstract class UnitPaPa<U, V, T : UnitConvert<U, V>> {
 
     fun trans(value: U, unit: T, outputUnit: T): Pair<U, T> {
         val base = unit.toBase(value)

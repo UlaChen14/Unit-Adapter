@@ -1,8 +1,8 @@
 package com.yitianyitiandan.unittool
 
-class HeightChild : UnitPaPa<Double, HeightChild.HeightUnit>() {
+class HeightChild : UnitPaPa<Double, Double, HeightChild.HeightUnit>() {
 
-    enum class HeightUnit : UnitConvert<Double> {
+    enum class HeightUnit : UnitConvert<Double, Double> {
         CM {
             override fun toBase(value: Double): Double {
                 return value

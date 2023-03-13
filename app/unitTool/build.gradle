@@ -11,11 +11,11 @@ task generateSourcesJar(type: Jar) {
 
 android {
     namespace 'com.yitianyitiandan.unittool'
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         minSdk 28
-        targetSdk 33
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -46,9 +46,9 @@ afterEvaluate {
                 from components.release // 表示发布 release（jitpack 都不会使用到）
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.UlaChen14' // 这个是依赖库的组 id
-                artifactId = 'Unit-Adapter' // 依赖库的名称（jitpack 都不会使用到）
-                version = versionName
+//                groupId = 'com.github.UlaChen14' // 这个是依赖库的组 id
+//                artifactId = 'Unit-Adapter' // 依赖库的名称（jitpack 都不会使用到）
+//                version = versionName
             }
         }
         repositories {

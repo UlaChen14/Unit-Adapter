@@ -17,5 +17,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Unit Adapter"
-include ':app'
 include ':unitTool'

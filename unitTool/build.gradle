@@ -4,11 +4,6 @@ plugins {
     id 'maven-publish'
 }
 
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-
 android {
     namespace 'com.yitianyitiandan.unittool'
     compileSdk 32
@@ -37,19 +32,13 @@ android {
 }
 
 afterEvaluate {
-    publishing {
-        def versionName = "0.1.4" // 当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release // 表示发布 release（jitpack 都不会使用到）
+    android.libraryVariants.each { variant ->
+        publishing.publications.create(variant.name, MavenPublication) {
+            from components.findByName(variant.name)
 
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.yitianyitiandan.unittool' // 这个是依赖库的组 id
-                artifactId = 'unitTool' // 依赖库的名称（jitpack 都不会使用到）
-                version = versionName
-            }
+            groupId = 'com.yitianyitiandan'
+            artifactId = 'unitTool'
+            version = "0.1.4"
         }
     }
 }
@@ -62,5 +51,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20'
 }
